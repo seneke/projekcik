@@ -43,7 +43,18 @@ li:before, .menu:before {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-  
+
+section {
+    background: rgba(255, 255, 255, 1); /* Białe tło dla treści */
+    backdrop-filter: blur(5px); /* Rozmycie tła pod treścią */
+    border-radius: 10px;
+    text-align: center; /* Wyśrodkowanie tekstu w poziomie */
+    max-width: 1200px; /* Maksymalna szerokość dla sekcji */
+    margin: 2em auto; /* Wyśrodkowanie sekcji na stronie */
+    padding: 2em; /* Padding wewnętrzny */
+    box-sizing: border-box; /* Upewnia się, że padding i border są wliczane do szerokości */
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -66,7 +77,7 @@ li:before, .menu:before {
     padding: 10px;
     background: var(--violet);
   }
-  
+
   .nav {
     position: relative;
     display: flex;
@@ -74,17 +85,18 @@ li:before, .menu:before {
     max-width: 400px;
     padding-bottom: 20px;
     border-radius: 5px 5px 25px 25px;
-    margin: 300px auto 0;
+    margin: 0 auto;
+    top: 30px;
     background: var(--white);
     box-shadow: rgb(50 50 93 / 10%) 0 30px 60px -12px,
       rgb(0 0 0 / 15%) 0 18px 36px -18px;
   }
-  
+
   .nav [type="checkbox"] {
     position: absolute;
     left: -9999px;
   }
-  
+
   .nav [type="checkbox"] + label {
     position: relative;
     width: 75px;
@@ -100,32 +112,35 @@ li:before, .menu:before {
     transform: translateY(-50%);
     transition: all 0.2s;
   }
-  
+
   .nav [type="checkbox"] + label:hover {
     background: var(--dark-violet);
   }
 
-  .desktop-menu {
-  position: absolute;
-  top: -25px;
-  left: 50%;
-  transform: translateX(-50%);
-  transition: all 0.4s;
-}
-
   .desktop-menu li {
-    position: relative;
+    position: absolute;
     top: -25px;
     left: 50%;
     transform: translateX(-50%);
     transition: all 0.4s;
   }
+
+  .desktop-menu li:nth-child(1) {
+    transition-delay: 0.2s;
+  }
   
-  .desktop-menu li:nth-child(1) { transition-delay: 0.2s; }
-  .desktop-menu li:nth-child(2) { transition-delay: 0.15s; }
-  .desktop-menu li:nth-child(3) { transition-delay: 0.1s; }
-  .desktop-menu li:nth-child(4) { transition-delay: 0.05s; }
+  .desktop-menu li:nth-child(2) {
+    transition-delay: 0.15s;
+  }
   
+  .desktop-menu li:nth-child(3) {
+    transition-delay: 0.1s;
+  }
+  
+  .desktop-menu li:nth-child(4) {
+    transition-delay: 0.05s;
+  }
+
   .desktop-menu li a {
     width: 50px;
     height: 50px;
@@ -135,7 +150,7 @@ li:before, .menu:before {
     justify-content: center;
     background: var(--violet);
   }
-  
+
   .desktop-menu li a span {
     position: absolute;
     top: 0;
@@ -150,52 +165,33 @@ li:before, .menu:before {
     color: var(--black);
     font-weight: bold;
   }
-  
+
   .nav input:checked + label {
     background: var(--black);
     transform: translateY(calc(-50% + 4px));
   }
+
+  .nav input:checked ~ .desktop-menu li:nth-child(1) {
+    top: 50px;
+    transition-delay: 0.1s;
+  }
+
+  .nav input:checked ~ .desktop-menu li:nth-child(2) {
+    top: 100px;
+    left: calc(50% - 75px);
+    transition-delay: 0.2s;
+  }
   
-  .nav input#desktop-menu:checked ~ .desktop-menu li:nth-child(1) { top: -210px; transition-delay: 0.1s; }
-  .nav input#desktop-menu:checked ~ .desktop-menu li:nth-child(2) { top: -160px; left: calc(50% - 75px); transition-delay: 0.2s; }
-  .nav input#desktop-menu:checked ~ .desktop-menu li:nth-child(3) { top: -160px; left: calc(50% + 75px); transition-delay: 0.3s; }
-  .nav input#desktop-menu:checked ~ .desktop-menu li:nth-child(4) { top: -110px; transition-delay: 0.4s; }
+  .nav input:checked ~ .desktop-menu li:nth-child(3) {
+    top: 100px;
+    left: calc(50% + 75px);
+    transition-delay: 0.3s;
+  }
   
-  .nav input#desktop-menu:checked ~ .desktop-menu li a span {
-    opacity: 1;
-    transition-delay: 0.9s;
+  .nav input:checked ~ .desktop-menu li:nth-child(4) {
+    top: 150px;
+    transition-delay: 0.4s;
   }
-
-  .nav input#desktop-menu:checked ~ .menu li {
-    opacity: 1; /* Pokaż elementy po zaznaczeniu */
-  }
-
-  #desktop-menu:checked ~ .menu {
-    display: block; /* Pokazuje menu, gdy checkbox jest zaznaczony */
-  }
-
-  .nav input#desktop-menu + label {
-    width: 75px;
-    height: 75px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    cursor: pointer;
-    background: var(--violet);
-    border-radius: 50%;
-  }
-
-section {
-    background: rgba(255, 255, 255, 1); /* Białe tło dla treści */
-    backdrop-filter: blur(5px); /* Rozmycie tła pod treścią */
-    border-radius: 10px;
-    text-align: center; /* Wyśrodkowanie tekstu w poziomie */
-    max-width: 1200px; /* Maksymalna szerokość dla sekcji */
-    margin: 2em auto; /* Wyśrodkowanie sekcji na stronie */
-    padding: 2em; /* Padding wewnętrzny */
-    box-sizing: border-box; /* Upewnia się, że padding i border są wliczane do szerokości */
-}
 
 .menu {
     position: fixed;
@@ -546,73 +542,6 @@ footer {
         margin: 0 2em;
     }
 
-    .desktop-menu {
-        display: flex;
-        justify-content: center; /* Wyśrodkowanie menu */
-        align-items: center; /* Wyrównanie elementów w pionie */
-        margin: 20px 0; /* Odstęp góra-dół */
-    }
-    
-    .desktop-menu .menu {
-        display: flex;
-        list-style: none; /* Usunięcie punktów listy */
-        padding: 0;
-        margin: 0;
-    }
-    
-    .desktop-menu .menu li {
-        margin: 0 1.5em; /* Odstęp między elementami menu */
-    }
-    
-    .desktop-menu-nav .menu li a {
-        text-decoration: none; /* Usunięcie podkreślenia */
-        color: white; /* Kolor tekstu */
-        padding: 10px; /* Padding dla lepszego kliknięcia */
-        transition: color 0.3s; /* Płynna zmiana koloru */
-    }
-    
-    .desktop-menu-nav .menu li a:hover {
-        color: #e65c00; /* Kolor po najechaniu */
-    }
-    
-      .desktop-menu .menu li a i {
-        font-size: 20px;
-      }
-
-      .nav {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        max-width: 400px;
-        padding-bottom: 20px;
-        border-radius: 5px 5px 25px 25px;
-        margin: 300px auto 0;
-        background: var(--white);
-        box-shadow: rgb(50 50 93 / 10%) 0 30px 60px -12px,
-          rgb(0 0 0 / 15%) 0 18px 36px -18px;
-      }
-      
-      .nav [type="checkbox"] {
-        position: absolute;
-        left: -9999px;
-      }
-      
-      .nav [type="checkbox"] + label {
-        position: relative;
-        width: 75px;
-        height: 75px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 16px;
-        cursor: pointer;
-        z-index: 1;
-        background: var(--violet);
-        border-radius: 50%;
-        transform: translateY(-50%);
-        transition: all 0.2s;
-      }
-
     h1 {
         font-size: 2em;
     }
@@ -707,71 +636,6 @@ footer {
     .gallery-container img {
         width: 100%; /* Zwiększ szerokość obrazów */
     }
-
-    .desktop-menu {
-        display: block;
-    }
-
-    .desktop-menu .menu {
-        display: flex;
-        gap: 20px;
-        list-style: none;
-      }
-    
-      .desktop-menu .menu li {
-        position: relative;
-      }
-    
-      .desktop-menu .menu li a {
-        font-size: 18px;
-        color: var(--black);
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-    
-      .desktop-menu .menu li a:hover {
-        color: var(--violet);
-      }
-    
-      .desktop-menu .menu li a i {
-        font-size: 20px;
-      }
-
-      .nav {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        max-width: 400px;
-        padding-bottom: 20px;
-        border-radius: 5px 5px 25px 25px;
-        margin: 300px auto 0;
-        background: var(--white);
-        box-shadow: rgb(50 50 93 / 10%) 0 30px 60px -12px,
-          rgb(0 0 0 / 15%) 0 18px 36px -18px;
-      }
-      
-      .nav [type="checkbox"] {
-        position: absolute;
-        left: -9999px;
-      }
-      
-      .nav [type="checkbox"] + label {
-        position: relative;
-        width: 75px;
-        height: 75px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 16px;
-        cursor: pointer;
-        z-index: 1;
-        background: var(--violet);
-        border-radius: 50%;
-        transform: translateY(-50%);
-        transition: all 0.2s;
-      }
 
     h1 {
         font-size: 2.5em;

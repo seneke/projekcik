@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biały Dom Sarbinowo</title>
+    <link rel="stylesheet" href="styles.css?v=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+<body>
+    <div class="background-container">
+        <header>
+            <div class="menu">
+                <ul class="list hidden">
+                  <li>Oferta</li>
+                  <li>Galeria</li>
+                  <li>Kontakt</li>
+                  <li>Mapa</li>
+                </ul>
+                <ul class="list hidden">
+                  <li>Oferta</li>
+                  <li>Galeria</li>
+                  <li>Kontakt</li>
+                  <li>Mapa</li>
+                  </ul>
+              </div>
+              <nav class="nav desktop-nav">
+                <input id="menu" type="checkbox">
+                <label for="menu">Menu</label>
+                <ul class="menu">
+                  <li>
+                    <a href="#0">
+                      <span>About</span>
+                      <i class="fas fa-address-card" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#0">
+                      <span>Projects</span>
+                      <i class="fas fa-tasks" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#0">
+                      <span>Clients</span>
+                      <i class="fas fa-users" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#0">
+                      <span>Contact</span>
+                      <i class="fas fa-envelope-open-text" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            
+        </header>
+    </div>
+    
+    <div class="main-content">
+        <section id="offer">
+            <h2>Witamy w Białym Domu</h2>
+            <p>Zapraszamy Państwa do nowo otwartego obiektu z bezpłatnym parkingiem w spokojnej lokalizacji na pograniczu Sarbinowa i Chłopów, co jest dużym atutem ze względu na szeroką i nie zatłoczoną plażę oraz bliskość przystani rybackiej.</p>
+        </section>
+        
+        <section class="gallery-section">
+            <!-- Pierwsza galeria -->
+            <div class="gallery-container gallery-container-left">
+                <div class="gallery-carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item">
+                            <img src="img/43.jpg" alt="Zdjęcie 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/42.jpg" alt="Zdjęcie 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/44.jpg" alt="Zdjęcie 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/45.jpg" alt="Zdjęcie 2">
+                        </div>
+                        <!-- Dodaj więcej elementów galerii według potrzeb -->
+                    </div>
+                    <button class="carousel-control-prev" aria-label="Previous">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-control-next" aria-label="Next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="carousel-indicators">
+                        <button type="button" data-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-slide-to="2" aria-label="Slide 3"></button>
+                        <!-- Więcej wskaźników -->
+                    </div>
+                </div>
+                <div class="gallery-text">
+                    <h3>Pokoje</h3>
+                    <p>Oferujemy cztery dwuosobowe pokoje wyposażone w wifi, tv ze smartem, duże łóżko z wygodnym materacem, lodówkę, czajnik bezprzewodowy, suszarkę do ubrań, zestaw plażowy ( parasol, leżaki, parawan i ręczniki plażowe ).</p>
+                </div>
+            </div>
+    
+            <!-- Druga galeria -->
+            <div class="gallery-container gallery-container-right">
+                <div class="gallery-text">
+                    <h3>Łazienka</h3>
+                    <p>W każdym pokoju jest  prywatna łazienka z przestronnym prysznicem, suszarką do włosów i ręcznikami.</p>
+                </div>
+                <div class="gallery-carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item">
+                            <img src="img/51.jpg" alt="Zdjęcie 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/59.jpg" alt="Zdjęcie 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/60.jpg" alt="Zdjęcie 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/63.jpg" alt="Zdjęcie 2">
+                        </div>
+                        <!-- Dodaj więcej elementów galerii według potrzeb -->
+                    </div>
+                    <button class="carousel-control-prev" aria-label="Previous">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-control-next" aria-label="Next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="carousel-indicators">
+                        <button type="button" data-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-slide-to="2" aria-label="Slide 3"></button>
+                        <!-- Więcej wskaźników -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-container gallery-container-left">
+                <div class="gallery-carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item">
+                            <img src="img/28.jpg" alt="Zdjęcie 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/41.jpg" alt="Zdjęcie 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/64.jpg" alt="Zdjęcie 2">
+                        </div>
+                        <!-- Dodaj więcej elementów galerii według potrzeb -->
+                    </div>
+                    <button class="carousel-control-prev" aria-label="Previous">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-control-next" aria-label="Next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="carousel-indicators">
+                        <button type="button" data-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-slide-to="2" aria-label="Slide 3"></button>
+                        <!-- Więcej wskaźników -->
+                    </div>
+                </div>
+                <div class="gallery-text">
+                    <h3>Taras</h3>
+                    <p>Z każdego pokoju wychodzi się na prywatny osłonięty taras ze stołem, krzesłami, leżakami i grillem.</p>
+                </div>
+            </div>
+    
+            <!-- Czwarta galeria -->
+            <div class="gallery-container gallery-container-right">
+                <div class="gallery-text">
+                    <h3>Kuchnia</h3>
+                    <p>W obiekcie znajduje się również w pełni wyposażona kuchnia ze zmywarką, mikrowelą i ekspresem do kawy. Do dyspozycji gości jest również żelazko oraz deska do prasowania.</p>
+                </div>
+                <div class="gallery-carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item">
+                            <img src="img/21.jpg" alt="Zdjęcie 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/25.jpg" alt="Zdjęcie 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/26.jpg" alt="Zdjęcie 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/27.jpeg" alt="Zdjęcie 2">
+                        </div>
+                        <!-- Dodaj więcej elementów galerii według potrzeb -->
+                    </div>
+                    <button class="carousel-control-prev" aria-label="Previous">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-control-next" aria-label="Next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="carousel-indicators">
+                        <button type="button" data-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-slide-to="2" aria-label="Slide 3"></button>
+                        <!-- Więcej wskaźników -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact">
+            <div class="contact-container">
+                <div class="contact-text">
+                    <h2>Kontakt</h2>                                            
+                    <p>Zapraszamy do kontaktu pod jeden z poniższych numerów:</p>
+                    <a href="tel:+48123456789" class="phone">
+                        <i class="fas fa-phone-alt"></i> 504 226 321
+                    </a>
+                    <a href="tel:+48123456780" class="phone">
+                        <i class="fas fa-phone-alt"></i> 504 226 346
+                    </a>
+                    <a href="https://www.booking.com/hotel/pl/bialy-dom-sarbinowo.pl.html" class="booking-button" target="_blank">Zarezerwuj na Booking.com</a>
+                </div>
+            </div>
+            <div class="contact-map">
+                <!-- Mapa Google -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2331.523256623332!2d15.973229577114363!3d54.2416258073609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470031d243175403%3A0xda39ade16bb57bd6!2sPolna%208B%2C%2076-034%20Sarbinowo!5e0!3m2!1spl!2spl!4v1725565854878!5m2!1spl!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+        
+        <footer>
+            <h3>&copy; 2024 Biały Dom Sarbinowo</h3>
+        </footer>
+    </div>
+    
+    <script src="scripts.js?v=1.0"></script>
+
+</body>
+</html>

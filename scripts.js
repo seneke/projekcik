@@ -1,72 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    // Elementy menu mobilnego
-    const mobileMenuToggle = document.querySelector('.menu'); // Przycisk do rozwijania
-    const mobileMenu = document.querySelector('.menu .list'); // Menu rozwijane
-
-    // Kliknięcie na mobilne menu
-    mobileMenuToggle.addEventListener('click', function(event) {
-        event.stopPropagation(); // Zatrzymuje propagację kliknięcia
-        mobileMenu.classList.toggle('hidden'); // Przełącza widoczność menu
+    // Event dla menu-toggle
+    $('.menu').on('click', function () {
+        $('.list').toggleClass('hidden');
     });
 
-    // Nasłuchiwanie na kliknięcie w dokument
-    document.addEventListener('click', function(event) {
-        if (!mobileMenuToggle.contains(event.target) && !mobileMenu.contains(event.target)) {
-            // Jeśli kliknięcie miało miejsce poza przyciskiem lub menu, chowamy menu
-            mobileMenu.classList.add('hidden');
-        }
-    });
-
-    document.addEventListener('DOMContentLoaded', function () {
-
-        // Elementy menu mobilnego
-        const mobileMenuToggle = document.querySelector('.menu'); // Przycisk do rozwijania
-        const mobileMenu = document.querySelector('.menu .list'); // Menu rozwijane
-    
-        // Kliknięcie na mobilne menu
-        mobileMenuToggle.addEventListener('click', function(event) {
-            event.stopPropagation(); // Zatrzymuje propagację kliknięcia
-            mobileMenu.classList.toggle('hidden'); // Przełącza widoczność menu
-        });
-    
-        // Nasłuchiwanie na kliknięcie w dokument
-        document.addEventListener('click', function(event) {
-            if (!mobileMenuToggle.contains(event.target) && !mobileMenu.contains(event.target)) {
-                mobileMenu.classList.add('hidden'); // Chowamy menu
-            }
-        });
-    
-        // Elementy menu desktopowego
-        const desktopMenuToggle = document.querySelector('.nav input[type="checkbox"]');
-        const desktopMenu = document.querySelector('.desktop-menu');
-    
-        // Obsługa desktop menu
-        desktopMenuToggle.addEventListener('change', function () {
-            if (this.checked) {
-                $(desktopMenu).slideDown();
-            } else {
-                $(desktopMenu).slideUp();
-            }
-        });
-    
-        // Kliknięcie w elementy menu desktopowego
-        desktopMenu.querySelectorAll('li').forEach(item => {
-            item.addEventListener('click', function () {
-                desktopMenuToggle.checked = false; // Ukryj menu
-                $(desktopMenu).slideUp(); // Dodaj płynne zwijanie
-            });
-        });
-    
-        // Nasłuchiwanie na kliknięcie w dokument dla desktop menu
-        document.addEventListener('click', function(event) {
-            if (!desktopMenuToggle.contains(event.target) && !desktopMenu.contains(event.target)) {
-                desktopMenuToggle.checked = false; // Ukryj menu
-                $(desktopMenu).slideUp(); // Dodaj płynne zwijanie
-            }
-        });
-
-    // Inicjalizacja ScrollReveal
+// Inicjalizacja ScrollReveal
     ScrollReveal().reveal('.gallery-container, .contact-container, .contact-map, #offer', {
         distance: '20px',
         duration: 1000,
@@ -75,6 +14,17 @@ document.addEventListener('DOMContentLoaded', function () {
         opacity: 0,
         interval: 200,
         reset: true // Reset animacji po przewinięciu z powrotem
+    });
+
+    document.addEventListener('click', function(event) {
+        const mobileMenuToggle = document.querySelector('.menu'); // Zmień selektor na odpowiedni
+        const mobileMenu = document.querySelector('.menu .list'); // Upewnij się, że ten selektor odpowiada Twojemu menu
+    
+        // Sprawdź, czy kliknięcie miało miejsce na przycisku menu lub w menu
+        if (!mobileMenuToggle.contains(event.target) && !mobileMenu.contains(event.target)) {
+            // Jeśli nie, ustaw menu jako zamknięte
+            mobileMenuToggle.classList.add('hidden'); // lub inna metoda ukrywania
+        }
     });
 
     console.log('ScrollReveal is loaded and ready to use.');
@@ -105,6 +55,45 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
         });
+    });
+
+    const desktopMenuItems = document.querySelectorAll('.desktop-menu li');
+    desktopMenuItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const targetText = this.querySelector('span').textContent.toLowerCase(); 
+            let targetId = '';
+
+            if (targetText === 'oferta') {
+                targetId = '#offer';
+            } else if (targetText === 'galeria') {
+                targetId = '#gallery';
+            } else if (targetText === 'kontakt') {
+                targetId = '#contact';
+            } else if (targetText === 'mapa') {
+                targetId = '.contact-map'; 
+            }
+
+            if (targetId) {
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+
+    // Nasłuchiwanie na kliknięcie w dokument dla menu mobilnego
+    document.addEventListener('click', function(event) {
+        const mobileMenuToggle = document.querySelector('.menu-toggle'); // Upewnij się, że to odpowiada Twojemu przyciskowi menu
+        const mobileMenu = document.querySelector('.menu .list'); // Upewnij się, że to odpowiada Twojemu menu
+
+        // Sprawdź, czy kliknięcie miało miejsce na przycisku menu lub w menu
+        if (!mobileMenuToggle.contains(event.target) && !mobileMenu.contains(event.target)) {
+            // Jeśli nie, ustaw menu jako zamknięte
+            mobileMenu.classList.add('hidden'); // lub inna metoda ukrywania
+        }
     });
 
     // Initialize Carousels
@@ -171,4 +160,5 @@ document.addEventListener('DOMContentLoaded', function () {
         updateCarousel();
     });
 });
-});
+
+console.log(ScrollReveal);

@@ -13,7 +13,6 @@ body {
     text-align: center;
     background: var(--light-grey);
     color: var(--white);
-    padding: 0 20px;
   }
 
 .background-container {
@@ -79,12 +78,11 @@ section {
   }
 
   .nav {
-    position: relative;
     display: flex;
-    justify-content: center;
-    border-radius: 5px 5px 25px 25px;
-    margin: 0 auto;
-    top: 50px;
+  justify-content: center; /* Wyśrodkuje element w kontenerze */
+  align-items: center;
+  max-width: 100%; /* Dostosuj szerokość, jeśli potrzebujesz */
+  margin: 0 auto; /* Wyśrodkuje cały kontener na stronie */
   }
 
   .nav input#desktop-menu + label {
@@ -106,18 +104,15 @@ section {
 
   .nav [type="checkbox"] + label {
     position: relative;
-    width: 75px;
-    height: 75px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    cursor: pointer;
-    z-index: 1;
-    background: var(--violet);
-    border-radius: 50%;
-    transform: translateY(-50%);
-    transition: all 0.2s;
+  display: block; /* Zapewnia, że element jest traktowany jak blokowy */
+  margin: 0 auto; /* Automatyczne marginesy wyrównają element w poziomie */
+  width: 75px;
+  height: 75px;
+  text-align: center; /* Wyśrodkuje tekst wewnątrz przycisku */
+  background: var(--violet);
+  border-radius: 50%;
+  transition: all 0.2s;
+  cursor: pointer;
   }
 
   .nav [type="checkbox"] + label:hover {
@@ -173,30 +168,36 @@ section {
     font-weight: bold;
   }
 
+  .nav input:checked ~ .desktop-menu li {
+    position: absolute;
+    left: 50%; /* Ustawia element na środku kontenera */
+    transform: translateX(-50%); /* Wyśrodkowuje element względem osi X */
+  }
+
   .nav input:checked + label {
     background: var(--black);
     transform: translateY(calc(-50% + 4px));
   }
 
   .nav input:checked ~ .desktop-menu li:nth-child(1) {
-    top: 50px;
+    top: 100px;
     transition-delay: 0.1s;
   }
 
   .nav input:checked ~ .desktop-menu li:nth-child(2) {
-    top: 100px;
+    top: 150px;
     left: calc(50% - 100px);
     transition-delay: 0.2s;
   }
   
   .nav input:checked ~ .desktop-menu li:nth-child(3) {
-    top: 100px;
-    left: calc(50% + 30px);
+    top: 200px;
+    left: calc(50% + 50px);
     transition-delay: 0.3s;
   }
   
   .nav input:checked ~ .desktop-menu li:nth-child(4) {
-    top: 150px;
+    top: 250px;
     transition-delay: 0.4s;
   }
 

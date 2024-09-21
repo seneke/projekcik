@@ -181,6 +181,10 @@ a {
   font-weight: bold;
 }
 
+.nav input:checked ~ .desktop-menu {
+    display: block; /* Wyświetlaj menu, gdy checkbox jest zaznaczony */
+}
+
 .nav input:checked ~ .desktop-menu li {
   position: absolute;
   left: 50%; /* Wyśrodkowanie */
@@ -212,8 +216,8 @@ a {
 .menu {
     position: fixed;
     background: #474747;
-    height: 35px;
-    width: 35px;
+    height: 45px;
+    width: 45px;
     border-radius: 5px;
     color: #ffffff;
     font-size: 2em;
@@ -252,18 +256,8 @@ a {
   margin-top: 0.7em;
   visibility: hidden;
   opacity: 0;
+  display: none;
 }
-.menu ul:before {
-  content: "";
-  width: 0.75em;
-  height: 0.75em;
-  background: inherit;
-  position: absolute;
-  top: -0.375em;
-  right: calc(40px / 2 - 0.375em);
-  transform: rotate(45deg);
-}
-  
 .menu li {
   list-style: none;
   padding: 0.5em;
@@ -275,7 +269,7 @@ a {
 .menu li:before {
   position: absolute;
   top: calc(5% + 8px);
-  left: 8px;
+  left: 10px;
 }
 .menu li:nth-child(1):before {
   content: "\e885";
@@ -784,7 +778,7 @@ footer {
       }
 
     .background-container {
-        background: url('img/66.jpg') no-repeat center center; /* Zdjęcie dla telefonów */
+        background: url('img/69.jpg') no-repeat center center; /* Zdjęcie dla telefonów */
         background-size: cover; /* Pokrywa całą stronę, przycinając zdjęcie */
     }
 

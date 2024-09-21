@@ -1,9 +1,70 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    // Event dla menu-toggle
-    $('.menu').on('click', function () {
-        $('.list').toggleClass('hidden');
+    // Elementy menu mobilnego
+    const mobileMenuToggle = document.querySelector('.menu'); // Przycisk do rozwijania
+    const mobileMenu = document.querySelector('.menu .list'); // Menu rozwijane
+
+    // Kliknięcie na mobilne menu
+    mobileMenuToggle.addEventListener('click', function(event) {
+        event.stopPropagation(); // Zatrzymuje propagację kliknięcia
+        mobileMenu.classList.toggle('hidden'); // Przełącza widoczność menu
     });
+
+    // Nasłuchiwanie na kliknięcie w dokument
+    document.addEventListener('click', function(event) {
+        if (!mobileMenuToggle.contains(event.target) && !mobileMenu.contains(event.target)) {
+            // Jeśli kliknięcie miało miejsce poza przyciskiem lub menu, chowamy menu
+            mobileMenu.classList.add('hidden');
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+        // Elementy menu mobilnego
+        const mobileMenuToggle = document.querySelector('.menu'); // Przycisk do rozwijania
+        const mobileMenu = document.querySelector('.menu .list'); // Menu rozwijane
+    
+        // Kliknięcie na mobilne menu
+        mobileMenuToggle.addEventListener('click', function(event) {
+            event.stopPropagation(); // Zatrzymuje propagację kliknięcia
+            mobileMenu.classList.toggle('hidden'); // Przełącza widoczność menu
+        });
+    
+        // Nasłuchiwanie na kliknięcie w dokument
+        document.addEventListener('click', function(event) {
+            if (!mobileMenuToggle.contains(event.target) && !mobileMenu.contains(event.target)) {
+                mobileMenu.classList.add('hidden'); // Chowamy menu
+            }
+        });
+    
+        // Elementy menu desktopowego
+        const desktopMenuToggle = document.querySelector('.nav input[type="checkbox"]');
+        const desktopMenu = document.querySelector('.desktop-menu');
+    
+        // Obsługa desktop menu
+        desktopMenuToggle.addEventListener('change', function () {
+            if (this.checked) {
+                $(desktopMenu).slideDown();
+            } else {
+                $(desktopMenu).slideUp();
+            }
+        });
+    
+        // Kliknięcie w elementy menu desktopowego
+        desktopMenu.querySelectorAll('li').forEach(item => {
+            item.addEventListener('click', function () {
+                desktopMenuToggle.checked = false; // Ukryj menu
+                $(desktopMenu).slideUp(); // Dodaj płynne zwijanie
+            });
+        });
+    
+        // Nasłuchiwanie na kliknięcie w dokument dla desktop menu
+        document.addEventListener('click', function(event) {
+            if (!desktopMenuToggle.contains(event.target) && !desktopMenu.contains(event.target)) {
+                desktopMenuToggle.checked = false; // Ukryj menu
+                $(desktopMenu).slideUp(); // Dodaj płynne zwijanie
+            }
+        });
 
     // Inicjalizacja ScrollReveal
     ScrollReveal().reveal('.gallery-container, .contact-container, .contact-map, #offer', {
@@ -15,19 +76,16 @@ document.addEventListener('DOMContentLoaded', function () {
         interval: 200,
         reset: true // Reset animacji po przewinięciu z powrotem
     });
-    
+
     console.log('ScrollReveal is loaded and ready to use.');
-    
+
     // Dodanie funkcji płynnego przewijania dla linków w menu
     const menuItems = document.querySelectorAll('.menu .list li');
-    
     menuItems.forEach(item => {
         item.addEventListener('click', function() {
-            // Pobieranie tekstu elementu (np. "Oferta", "Galeria")
             const targetText = this.textContent.toLowerCase();
-    
-            // Dopasowanie tekstu elementu do odpowiedniej sekcji
             let targetId = '';
+
             if (targetText === 'oferta') {
                 targetId = '#offer';
             } else if (targetText === 'galeria') {
@@ -35,10 +93,9 @@ document.addEventListener('DOMContentLoaded', function () {
             } else if (targetText === 'kontakt') {
                 targetId = '#contact';
             } else if (targetText === 'mapa') {
-                targetId = '.contact-map'; // Przenieś do sekcji mapy
+                targetId = '.contact-map'; 
             }
-    
-            // Znajdź sekcję i przewiń do niej, jeśli id jest ustawione
+
             if (targetId) {
                 const targetSection = document.querySelector(targetId);
                 if (targetSection) {
@@ -112,7 +169,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Initialize
         updateCarousel();
-    }); 
+    });
 });
-
-console.log(ScrollReveal);
+});

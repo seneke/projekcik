@@ -113,6 +113,7 @@ section {
   border-radius: 50%;
   transition: all 0.2s;
   cursor: pointer;
+  transform: translateY(20%);
   }
 
   .nav [type="checkbox"] + label:hover {
@@ -121,10 +122,11 @@ section {
 
   .desktop-menu li {
     position: absolute;
-    top: -25px;
-    left: 48%;
-    transform: translateX(-50%);
-    transition: all 0.4s;
+  top: -100px; /* Pozycja poza widokiem */
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.4s;
+  opacity: 0;
   }
 
   .desktop-menu li:nth-child(1) {
@@ -169,9 +171,7 @@ section {
   }
 
   .nav input:checked ~ .desktop-menu li {
-    position: absolute;
-    left: 50%; /* Ustawia element na środku kontenera */
-    transform: translateX(-50%); /* Wyśrodkowuje element względem osi X */
+    opacity: 1;
   }
 
   .nav input:checked + label {
@@ -180,25 +180,21 @@ section {
   }
 
   .nav input:checked ~ .desktop-menu li:nth-child(1) {
-    top: 100px;
-    transition-delay: 0.1s;
+    top: 100px; /* Półokrąg poniżej przycisku */
+  left: 50%;
+  transition-delay: 0.1s;
   }
 
   .nav input:checked ~ .desktop-menu li:nth-child(2) {
     top: 150px;
-    left: calc(50% - 100px);
-    transition-delay: 0.2s;
+  left: calc(50% - 75px); /* Przesunięcie w lewo */
+  transition-delay: 0.2s;
   }
   
   .nav input:checked ~ .desktop-menu li:nth-child(3) {
-    top: 200px;
-    left: calc(50% + 50px);
-    transition-delay: 0.3s;
-  }
-  
-  .nav input:checked ~ .desktop-menu li:nth-child(4) {
-    top: 250px;
-    transition-delay: 0.4s;
+    top: 150px;
+  left: calc(50% + 75px); /* Przesunięcie w prawo */
+  transition-delay: 0.3s;
   }
 
 .menu {
